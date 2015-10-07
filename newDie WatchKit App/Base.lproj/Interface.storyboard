@@ -1,16 +1,102 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--main-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller identifier="main" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="newDie_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="vUp-ns-vwV">
+                            <items>
+                                <button width="1" alignment="left" title="Roll" id="8fq-4N-Vkb"/>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Add Dice" id="kcI-q9-tzq">
+                            <connections>
+                                <segue destination="0DN-dy-XFn" kind="push" id="Mdb-1B-riO"/>
+                            </connections>
+                        </button>
+                        <table alignment="left" id="Kk4-ie-uut">
+                            <items>
+                                <tableRow identifier="cell" id="HC2-OV-8Fi" customClass="finalRow" customModule="newDie_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="IKV-FW-oVU">
+                                        <items>
+                                            <label width="136" height="47" alignment="left" text="Label" id="kaP-yD-BsT"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="theLabel" destination="kaP-yD-BsT" id="O9H-if-a2n"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="theTable" destination="Kk4-ie-uut" id="m26-kU-fU3"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--chooseDice-->
+        <scene sceneID="Q63-Pl-WuD">
+            <objects>
+                <controller identifier="chooseDice" hidesWhenLoading="NO" id="0DN-dy-XFn" customClass="page2" customModule="newDie_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="ziU-td-Hn6">
+                            <items>
+                                <tableRow identifier="cell" id="Mzc-dl-2Fo" customClass="diceRow" customModule="newDie_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="9hK-ur-dQZ">
+                                        <items>
+                                            <imageView width="45" height="100" alignment="left" id="mJU-Bd-T04"/>
+                                            <label width="79" height="47" alignment="left" text="Label" id="NL1-3c-irD"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="theImage" destination="mJU-Bd-T04" id="SBM-yn-HYX"/>
+                                        <outlet property="theLabel" destination="NL1-3c-irD" id="h4X-O7-vNU"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="theTable" destination="ziU-td-Hn6" id="wL5-Xw-hWF"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="426" y="345"/>
+        </scene>
+        <!--numRolls-->
+        <scene sceneID="Bul-Uk-w3d">
+            <objects>
+                <controller identifier="numRolls" title="numRolls" hidesWhenLoading="NO" id="F9h-kI-ehd" customClass="numRolls" customModule="newDie_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="oMI-xp-NUm">
+                            <items>
+                                <tableRow identifier="cell" id="TfF-7K-sEs" customClass="moreRows" customModule="newDie_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="OIR-fb-oeg">
+                                        <items>
+                                            <label width="136" height="63" alignment="left" text="Label" id="5Mu-EW-XHv"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="theLabel" destination="5Mu-EW-XHv" id="K1j-ko-tqV"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="theTable" destination="oMI-xp-NUm" id="INi-lo-Bsz"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="631" y="346"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -31,7 +117,7 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="newDie_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
