@@ -17,16 +17,22 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
-        
-        
+        let currCount = theStuff.prefs.valueForKey("count")
+        var check = currCount as! Int
+        if(check != 0)
+        {
+           theStuff.dieList = theStuff.prefs.valueForKey("dieList")! as! [String]
+        }
         
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        let labelNames = theStuff.dieList
         
+        
+       
+        let labelNames = theStuff.dieList
         self.theTable.setNumberOfRows(labelNames.count, withRowType: "cell")
         
         for(var i = 0; i < labelNames.count; i++)
@@ -34,6 +40,8 @@ class InterfaceController: WKInterfaceController {
             let currRow = self.theTable.rowControllerAtIndex(i) as! finalRow
             currRow.theLabel.setText(labelNames[i])
         }
+        
+        
 
         
     }

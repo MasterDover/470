@@ -45,10 +45,23 @@ class numRolls: WKInterfaceController {
 
     
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        let theRoll = "\(rowIndex + 1)\(theStuff.currDie)"
         
-        theStuff.dieList.append("\(rowIndex + 1)\(theStuff.currDie)")
+        
+        let currCount = theStuff.prefs.valueForKey("count")
+        
+        if(currCount != nil)
+        {
+            theStuff.prefs.setInteger((currCount! as! Int + 1), forKey: "count")
+        }
+        else
+        {
+            theStuff.prefs.setInteger(0, forKey: "count")
+        }
+        theStuff.dieList.append(theRoll)
+        theStuff.prefs.setValue(theStuff.dieList, forKey: "dieList")
         self.popToRootController()
         
-        
     }
+    
 }

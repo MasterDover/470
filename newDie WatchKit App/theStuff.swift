@@ -11,10 +11,10 @@ import WatchKit
 class theStuff: NSObject {
     
     static var dieList = [String]()
-    
+    static var savedRolls = [String]()
     static var currDie = "D1"
-    
-    static var currRolls = -1
+    static var prefs = NSUserDefaults.standardUserDefaults()
+ 
     
 
 }
